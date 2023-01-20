@@ -21,6 +21,7 @@ let schema = makeExecutableSchema({
 
 /** graphql middleware */
 module.exports = async function query({body, session}) {
+  console.log(process.version)
   try {
     let result = await graphql(schema, body.query, {}, session, body.variables, body.operationName)
     return {
